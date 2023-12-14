@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>place-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/places"
+        icon="arrow-back-outline"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="details$ | async as details">
+      {{ details.title }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">place-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button color="primary" class="ion-margin" (click)="onBookPlace()"
+    >Book</ion-button
+  >
 </ion-content>

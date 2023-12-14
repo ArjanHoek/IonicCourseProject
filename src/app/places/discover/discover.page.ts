@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PlacesService } from '../places.service';
+import { Observable, map } from 'rxjs';
+import { Place } from '../place.model';
 
 @Component({
   selector: 'app-discover',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./discover.page.scss'],
 })
 export class DiscoverPage implements OnInit {
+  public places$!: Observable<Place[]>;
 
-  constructor() { }
+  constructor(private placesService: PlacesService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.initPlaces();
   }
 
+  private initPlaces(): void {
+    this.places$ = this.placesService
+      .getPlaces()
+      .pipe(map(({ result }) => result));
+  }
 }
