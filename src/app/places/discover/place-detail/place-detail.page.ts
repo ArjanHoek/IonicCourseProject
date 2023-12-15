@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./place-detail.page.scss'],
 })
 export class PlaceDetailPage implements OnInit {
-  public details$!: Observable<Place>;
+  public place$!: Observable<Place>;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,18 +24,18 @@ export class PlaceDetailPage implements OnInit {
   }
 
   private getDetails(): void {
-    this.details$ = this.route.params.pipe(
+    this.place$ = this.route.params.pipe(
       takeWhile(({ placeId }) => placeId),
       concatMap(({ placeId }) => this.placesService.getPlaceById(placeId)),
       map(({ result }) => result),
       takeWhile(Boolean),
       finalize(() => {
-        this.navController.navigateBack('/places');
+        this.navController.navigateBack('/places/discover');
       })
     );
   }
 
   public onBookPlace(): void {
-    this.navController.navigateBack('/places');
+    this.navController.navigateBack('/places/discover');
   }
 }

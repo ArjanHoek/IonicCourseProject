@@ -2,13 +2,11 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button
-        defaultHref="/places"
+        defaultHref="/places/discover"
         icon="arrow-back-outline"
       ></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="details$ | async as details">
-      {{ details.title }}
-    </ion-title>
+    <ion-title *ngIf="place$ | async as place"> {{ place.title }} </ion-title>
   </ion-toolbar>
 </ion-header>
 

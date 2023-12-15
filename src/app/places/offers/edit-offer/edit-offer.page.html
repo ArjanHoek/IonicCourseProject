@@ -2,7 +2,8 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button
-        defaultHref="/places/offers"
+        *ngIf="offerDetails$ | async as offerDetails"
+        [defaultHref]="backHref"
         icon="arrow-back-outline"
       ></ion-back-button>
     </ion-buttons>

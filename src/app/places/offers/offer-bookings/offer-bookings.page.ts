@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../../place.model';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, concatMap, finalize, map, takeWhile } from 'rxjs';
+import {
+  Observable,
+  concatMap,
+  finalize,
+  map,
+  shareReplay,
+  takeWhile,
+} from 'rxjs';
 import { PlacesService } from '../../places.service';
 import { NavController } from '@ionic/angular';
 
@@ -31,7 +38,8 @@ export class OfferBookingsPage implements OnInit {
       takeWhile(Boolean),
       finalize(() => {
         this.navController.navigateBack('/places/offers');
-      })
+      }),
+      shareReplay(1)
     );
   }
 }
