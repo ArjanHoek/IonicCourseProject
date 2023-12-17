@@ -24,7 +24,7 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle menu="main-menu">
-          <ion-item button class="ion-no-padding">
+          <ion-item (click)="onLogout()" button class="ion-no-padding">
             <ion-icon slot="start" name="log-out-outline"></ion-icon>
             <ion-label>Log Out</ion-label>
           </ion-item>
