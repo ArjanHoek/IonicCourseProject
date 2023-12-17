@@ -9,7 +9,7 @@ import {
   shareReplay,
   takeWhile,
 } from 'rxjs';
-import { PlacesService } from '../../places.service';
+import { PlacesService } from '../../services/places.service';
 import { NavController } from '@ionic/angular';
 
 @Component({

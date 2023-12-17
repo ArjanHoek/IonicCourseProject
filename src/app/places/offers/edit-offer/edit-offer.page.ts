@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, concatMap, finalize, map, takeWhile, tap } from 'rxjs';
 import { Place } from '../../place.model';
 import { NavController } from '@ionic/angular';
-import { PlacesService } from '../../places.service';
+import { PlacesService } from '../../services/places.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

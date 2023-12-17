@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Place } from '../place.model';
-import { PlacesService } from '../places.service';
+import { PlacesService } from '../services/places.service';
 
 @Component({
   selector: 'app-offers',
