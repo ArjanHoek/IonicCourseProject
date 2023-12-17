@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, concatMap, finalize, map, takeWhile } from 'rxjs';
+import {
+  Observable,
+  concatMap,
+  finalize,
+  map,
+  shareReplay,
+  take,
+  takeWhile,
+} from 'rxjs';
 import { Place } from '../../place.model';
 import { ActivatedRoute } from '@angular/router';
 import { PlacesService } from '../../services/places.service';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-booking.component';
 
 @Component({
   selector: 'app-place-detail',
@@ -16,7 +25,8 @@ export class PlaceDetailPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private navController: NavController,
-    private placesService: PlacesService
+    private placesService: PlacesService,
+    private modalCtrl: ModalController
   ) {}
 
   ngOnInit() {
@@ -31,11 +41,25 @@ export class PlaceDetailPage implements OnInit {
       takeWhile(Boolean),
       finalize(() => {
         this.navController.navigateBack('/places/discover');
-      })
+      }),
+      shareReplay(1)
     );
   }
 
-  public onBookPlace(): void {
-    this.navController.navigateBack('/places/discover');
+  public async onBookPlace(): Promise<void> {
+    this.place$.pipe(take(1)).subscribe((place) => {
+      this.modalCtrl
+        .create({
+          component: CreateBookingComponent,
+          componentProps: { place },
+        })
+        .then((modal) => {
+          modal.present();
+          return modal.onDidDismiss();
+        })
+        .then((modalData) => {
+          console.log(modalData);
+        });
+    });
   }
 }
