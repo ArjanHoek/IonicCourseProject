@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-segment value="all" (ionChange)="onFilter($event)">
+    <ion-segment-button value="all"> All </ion-segment-button>
+    <ion-segment-button value="bookable"> Bookable </ion-segment-button>
+  </ion-segment>
+
   <ion-grid fixed *ngIf="places$ | async as places">
     <ion-row
       class="ion-justify-content-center"
@@ -23,7 +28,7 @@
             >
           </ion-card-header>
           <ion-card-content>
-            <ion-text color="danger">
+            <ion-text color="medium">
               {{ featuredPlace.description }}
             </ion-text>
           </ion-card-content>

@@ -1,22 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Subject, shareReplay, startWith } from 'rxjs';
+import {
+  BehaviorSubject,
+  Subject,
+  delay,
+  shareReplay,
+  startWith,
+  tap,
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   private loggedInSubject = new Subject<boolean>();
-  public isLoggedIn$ = this.loggedInSubject
+  public isLoggedIn$ = this.loggedInSubject.asObservable().pipe(
+    startWith(false),
+    delay(1500),
+    tap(() => this.authIsLoadingSubject.next(false)),
+    shareReplay(1)
+  );
+
+  private authIsLoadingSubject = new BehaviorSubject<boolean>(false);
+  public authIsLoading$ = this.authIsLoadingSubject
     .asObservable()
-    .pipe(startWith(true), shareReplay(1));
+    .pipe(shareReplay(1));
 
   constructor() {}
 
   public login(): void {
+    this.authIsLoadingSubject.next(true);
     this.loggedInSubject.next(true);
   }
 
   public logOut(): void {
+    this.authIsLoadingSubject.next(true);
     this.loggedInSubject.next(false);
   }
 }
