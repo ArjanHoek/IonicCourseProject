@@ -7,4 +7,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content [fullscreen]="true">
+  <ion-grid fixed *ngIf="bookings$ | async as bookings">
+    <ion-row *ngIf="bookings.length" class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="6">
+        <ion-list class="ion-margin-horizontal">
+          <ion-item-sliding *ngFor="let booking of bookings">
+            <ion-item class="ion-no-padding">
+              <ion-label>
+                <h2>{{ booking.placeTitle }}</h2>
+                <p>Guests: {{ booking.guestNumber }}</p>
+              </ion-label>
+            </ion-item>
+            <ion-item-options>
+              <ion-item-option (click)="onRemove(booking.id)" color="danger">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

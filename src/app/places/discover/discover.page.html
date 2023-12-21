@@ -22,7 +22,11 @@
               >{{ featuredPlace.price | currency }} / Night</ion-card-subtitle
             >
           </ion-card-header>
-          <ion-card-content> {{ featuredPlace.description }} </ion-card-content>
+          <ion-card-content>
+            <ion-text color="danger">
+              {{ featuredPlace.description }}
+            </ion-text>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>

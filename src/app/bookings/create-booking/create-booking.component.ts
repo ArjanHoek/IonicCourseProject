@@ -17,6 +17,6 @@ export class CreateBookingComponent {
   }
 
   public onBookPlace(): void {
-    this.modalCtrl.dismiss({ message: 'This is a dummy message!' }, 'confirm');
+    this.modalCtrl.dismiss({ place: this.place }, 'confirm');
   }
 }

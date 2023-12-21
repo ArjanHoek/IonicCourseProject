@@ -8,7 +8,7 @@ export class AuthenticationService {
   private loggedInSubject = new Subject<boolean>();
   public isLoggedIn$ = this.loggedInSubject
     .asObservable()
-    .pipe(startWith(false), shareReplay(1));
+    .pipe(startWith(true), shareReplay(1));
 
   constructor() {}
 

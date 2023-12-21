@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Place } from '../place.model';
+import { Place } from '../places/place.model';
 
 const testPlaces: Place[] = [
   {

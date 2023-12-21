@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, concatMap, finalize, map, takeWhile, tap } from 'rxjs';
+import { Observable, concatMap, map, takeWhile, tap } from 'rxjs';
 import { Place } from '../../place.model';
 import { NavController } from '@ionic/angular';
-import { PlacesService } from '../../services/places.service';
+import { PlacesService } from '../../../services/places.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -32,10 +32,10 @@ export class EditOfferPage implements OnInit {
       }),
       concatMap(({ placeId }) => this.placesService.getPlaceById(placeId)),
       map(({ result }) => result),
-      takeWhile(Boolean),
-      finalize(() => {
-        this.navController.navigateBack(this.backHref);
-      })
+      takeWhile(Boolean)
+      // finalize(() => {
+      //   this.navController.navigateBack(this.backHref);
+      // })
     );
   }
 }
