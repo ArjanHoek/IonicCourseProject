@@ -14,8 +14,8 @@ import {
 export class AuthenticationService {
   private loggedInSubject = new Subject<boolean>();
   public isLoggedIn$ = this.loggedInSubject.asObservable().pipe(
-    startWith(false),
-    delay(1500),
+    startWith(true),
+    delay(500),
     tap(() => this.authIsLoadingSubject.next(false)),
     shareReplay(1)
   );
