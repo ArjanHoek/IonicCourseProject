@@ -17,20 +17,7 @@
       <ion-col size="12" sizeSm="6">
         <ion-list class="ion-margin-horizontal">
           <ion-item-sliding *ngFor="let place of places" #slidingItem>
-            <ion-item
-              detail
-              detail-icon="chevron-forward-outline"
-              [routerLink]="[place.id]"
-              class="ion-no-padding"
-            >
-              <ion-thumbnail slot="start">
-                <ion-img [src]="place.imageUrl" />
-              </ion-thumbnail>
-              <ion-label>
-                <h2>{{ place.title }}</h2>
-                <p>{{ place.description }}</p>
-              </ion-label>
-            </ion-item>
+            <app-offer-item [place]="place"></app-offer-item>
             <ion-item-options>
               <ion-item-option (click)="onEdit(place.id, slidingItem)" color="warning">
                 <ion-icon name="create-outline" slot="icon-only"></ion-icon>

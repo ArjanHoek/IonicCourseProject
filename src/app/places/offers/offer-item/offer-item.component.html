@@ -1,0 +1,20 @@
+<ion-item
+  detail
+  detail-icon="chevron-forward-outline"
+  [routerLink]="[place.id]"
+  class="ion-no-padding"
+>
+  <ion-thumbnail slot="start">
+    <ion-img [src]="place.imageUrl" />
+  </ion-thumbnail>
+  <ion-label>
+    <h2>{{ place.title }}</h2>
+    <div class="offer-details">
+      <ion-icon name="calendar" color="primary"></ion-icon>
+      <ion-text>{{ getDummyDate() | date }}</ion-text>
+      <span class="ion-margin-horizontal">-</span>
+      <ion-icon name="calendar" color="primary"></ion-icon>
+      <ion-text>{{ getDummyDate() | date }}</ion-text>
+    </div>
+  </ion-label>
+</ion-item>

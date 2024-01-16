@@ -4,6 +4,14 @@ import { Place } from '../places/place.model';
 
 const testPlaces: Place[] = [
   {
+    id: '5',
+    title: 'Switzerland',
+    description: 'Center of the Alps!',
+    imageUrl:
+      'https://images.pexels.com/photos/267104/pexels-photo-267104.jpeg?cs=srgb&dl=pexels-pixabay-267104.jpg&fm=jpg&w=1280&h=850&_gl=1*9op49e*_ga*MTMyOTk5MTc4NC4xNzAzMzE3NDI0*_ga_8JE65Q40S6*MTcwMzMxNzQyNC4xLjEuMTcwMzMxNzcxMS4wLjAuMA..',
+    price: 309.99,
+  },
+  {
     id: '2',
     title: 'Canada',
     description: 'Out in the nature of North America!',
@@ -23,10 +31,18 @@ const testPlaces: Place[] = [
   {
     id: '3',
     title: 'Japan',
-    description: 'Discover this mythical island!',
+    description: 'Discover the colourful kitchen!',
     imageUrl:
       'https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?cs=srgb&dl=pexels-belle-co-402028.jpg&fm=jpg&w=1280&h=853&_gl=1*dv5t7q*_ga*NjM5NTY4Nzg4LjE2ODQyNTg4MTc.*_ga_8JE65Q40S6*MTcwMjQ3ODExMC4xMi4xLjE3MDI0ODA0ODQuMC4wLjA.',
     price: 219.99,
+  },
+  {
+    id: '4',
+    title: 'Iceland',
+    description: 'Imagine yourself in a fairytale!',
+    imageUrl:
+      'https://images.pexels.com/photos/356831/pexels-photo-356831.jpeg?cs=srgb&dl=pexels-pixabay-356831.jpg&fm=jpg&w=1280&h=886&_gl=1*11wm9tn*_ga*MTMyOTk5MTc4NC4xNzAzMzE3NDI0*_ga_8JE65Q40S6*MTcwMzMxNzQyNC4xLjEuMTcwMzMxNzUwMC4wLjAuMA..',
+    price: 319.99,
   },
 ];
 

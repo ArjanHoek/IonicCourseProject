@@ -1,0 +1,10 @@
+.offer {
+  &-details {
+    display: flex;
+    align-items: center;
+    
+    ion-icon {
+      margin-right: .5rem;
+    }
+  }
+}
